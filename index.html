@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>📚 Book Finder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Animated background orbs -->
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-orb orb-3"></div>
+
+  <!-- Floating counter badge -->
+  <div class="counter-badge" id="counterBadge">
+    <span class="counter-icon">📖</span>
+    <span>Books Read: <strong id="counterNum">0</strong></span>
+  </div>
+
+  <div class="wrapper">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="header-eyebrow">Discover your next adventure</div>
+      <h1 class="header-title">
+        <span class="title-icon">📚</span>
+        <span>Book Finder</span>
+      </h1>
+      <p class="header-sub">Search millions of titles from the Open Library</p>
+    </header>
+
+    <!-- Search -->
+    <section class="search-section">
+      <div class="search-wrap">
+        <div class="search-bar-container">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <input
+            type="text"
+            id="searchInput"
+            class="search-input"
+            placeholder="Search by title, author…"
+            autocomplete="off"
+          />
+          <button class="search-btn" id="searchBtn">
+            <span>Search</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18">
+              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Quick tags -->
+        <div class="quick-tags">
+          <span class="tag-label">Popular:</span>
+          <button class="tag" data-q="Harry Potter">Harry Potter</button>
+          <button class="tag" data-q="Dune">Dune</button>
+          <button class="tag" data-q="George Orwell">Orwell</button>
+          <button class="tag" data-q="Agatha Christie">Christie</button>
+          <button class="tag" data-q="Stephen King">S. King</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Status message -->
+    <div class="status-msg" id="statusMsg"></div>
+
+    <!-- Results grid -->
+    <section class="results-section" id="resultsSection">
+      <div class="results-grid" id="resultsGrid"></div>
+    </section>
+
+  </div>
+
+  <!-- Card template (hidden) -->
+  <template id="cardTemplate">
+    <article class="card">
+      <div class="card-img-wrap">
+        <img class="card-img" src="" alt="" loading="lazy"/>
+        <div class="card-img-overlay"></div>
+        <div class="card-year-badge"></div>
+      </div>
+      <div class="card-body">
+        <h3 class="card-title"></h3>
+        <p class="card-author"></p>
+        <button class="read-btn">
+          <span class="read-btn-icon">✓</span>
+          <span class="read-btn-text">I've Read This</span>
+        </button>
+      </div>
+    </article>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
