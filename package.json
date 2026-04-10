@@ -1,13 +1,17 @@
 {
-  "name": "book-finder",
+  "name": "bookwise",
   "version": "1.0.0",
-  "description": "Book Finder Project",
+  "description": "Premium Book Discovery App",
+  "main": "index.html",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "dev": "npx -y live-server .",
+    "start": "npx -y live-server ."
   },
-  "devDependencies": {
-    "vite": "^5.0.0"
-  }
+  "keywords": [
+    "books",
+    "library",
+    "api"
+  ],
+  "author": "BookWise",
+  "license": "MIT"
 }

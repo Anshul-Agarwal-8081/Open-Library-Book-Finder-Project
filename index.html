@@ -3,20 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>📚 Book Finder</title>
+  <title>BookWise | Discover Your Next Great Read</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Discover millions of books from the Open Library. Track your reading progress and find your next favorite title with BookWise.">
+  <meta name="keywords" content="books, library, book search, reading tracker, open library API, literary discovery">
+  <meta name="author" content="BookWise Inc.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bookwise.example.com/">
+  <meta property="og:title" content="BookWise | Discover Your Next Great Read">
+  <meta property="og:description" content="Discover millions of books from the Open Library. Track your reading progress and find your next favorite title.">
+  <meta property="og:image" content="bg.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://bookwise.example.com/">
+  <meta property="twitter:title" content="BookWise | Discover Your Next Great Read">
+  <meta property="twitter:description" content="Discover millions of books from the Open Library. Track your reading progress and find your next favorite title.">
+  <meta property="twitter:image" content="bg.png">
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="bg-animation" id="bgAnimation"></div>
 
-  <div class="counter-badge" id="counterBadge">
-    📖 Books Read: <strong id="counterNum">0</strong>
+  <div class="counter-badge" id="counterBadge" title="Total books you've marked as read">
+    <span>📖 Books Read:</span> <strong id="counterNum">0</strong>
   </div>
 
-  <div class="wrapper">
+  <main class="wrapper">
     <header class="header">
-      <h1>📚 Book Finder</h1>
-      <p>Search millions of titles from the Open Library</p>
+      <h1>BookWise</h1>
+      <p>Your gateway to millions of stories. Search, discover, and track your literary journey.</p>
     </header>
 
     <div class="search-section">
@@ -24,38 +44,39 @@
         <input
           type="text"
           id="searchInput"
-          placeholder="Search by title, author…"
+          placeholder="Search for books, authors, or ISBNs..."
+          aria-label="Search for books"
         />
-        <button id="searchBtn">Search</button>
+        <button id="searchBtn">Find Books</button>
       </div>
 
       <div class="quick-tags">
         <span>Popular:</span>
         <button class="tag" data-q="Harry Potter">Harry Potter</button>
-        <button class="tag" data-q="Dune">Dune</button>
-        <button class="tag" data-q="George Orwell">Orwell</button>
-        <button class="tag" data-q="Agatha Christie">Christie</button>
-        <button class="tag" data-q="Stephen King">S. King</button>
+        <button class="tag" data-q="The Lord of the Rings">LotR</button>
+        <button class="tag" data-q="Foundation Asimov">Asimov</button>
+        <button class="tag" data-q="Jane Austen">Austen</button>
+        <button class="tag" data-q="Crime and Punishment">Dostoevsky</button>
       </div>
     </div>
 
-    <div class="status-msg" id="statusMsg"></div>
+    <div class="status-msg" id="statusMsg" aria-live="polite"></div>
 
     <div class="results-grid" id="resultsGrid"></div>
-  </div>
+  </main>
 
   <template id="cardTemplate">
-    <div class="card">
+    <article class="card">
       <div class="card-img-wrap">
-        <img class="card-img" src="" alt="" />
+        <img class="card-img" src="" alt="Book Cover" loading="lazy" />
         <span class="card-year"></span>
       </div>
       <div class="card-body">
         <h3 class="card-title"></h3>
         <p class="card-author"></p>
-        <button class="read-btn">✓ I've Read This</button>
+        <button class="read-btn" aria-label="Mark as read">✓ I've Read This</button>
       </div>
-    </div>
+    </article>
   </template>
 
   <script src="script.js"></script>
